@@ -11,4 +11,9 @@ class Article(models.Model):
     #add in author later
 
     def __str__(self):
+        #return self.title
         return "{}".format(self.title)
+
+    def snippet(self):
+        #return self.body[:50]
+        return "{}".format(self.body[:50]) + " ..."
