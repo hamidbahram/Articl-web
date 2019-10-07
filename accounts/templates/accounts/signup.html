@@ -4,8 +4,9 @@
     <h1>signup</h1>
     <hr>
     <br>
-    <form class="site-form" action="/accounts/signup" method="post">
+    <form class="site-form" action="/accounts/signup/" method="post">
+        {% csrf_token %}
         {{form}}
-        <input type="submit" value="signup">
+        <input type="submit" value="Signup">
     </form>
 {% endblock %}
