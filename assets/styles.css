@@ -145,3 +145,16 @@ a.highlight{
     margin: 10px 0;
 }
 
+html, body{
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+footer{
+    width:100%;
+    background-color:#00dba0;
+    padding:5px 0px;
+    margin-top:50px;
+    clear:both;
+}
