@@ -13,20 +13,21 @@
         <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="not found"></a></h1>
         <nav>
             <ul>
+                <li><a href="{% url 'articles:aboutme' %}" class="about">about-me</a></li>
                 {% if user.is_authenticated %}
-                   <li>
+                <li>
                        <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                            {% csrf_token %}
                            <button type="submit">Logout</button>
                        </form>
                    </li>
                    <li><a href="{% url 'articles:create' %}" class="highlight">New Article</a></li>
-                {% else %}
+                   {% else %}
                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
                    <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
-                {% endif %}
-            </ul>
-        </nav>
+                   {% endif %}
+                </ul>
+            </nav>
     </header>
     <div class="wrapper">
         {% block content %}
