@@ -114,7 +114,8 @@ a.highlight{
     border: 1px solid #00dba0;
     padding: 10px;
     border-radius: 4px;
-    color: #00dba0;
+    color: #8B008B;
+    font-family:monospace;
 }
 
 .helptext, .helptext ul{
@@ -175,9 +176,48 @@ footer{
 }
 
 a.about{
-    border:1px solid #ff5722;
+    border:1px solid #00dba0;
     padding:10px;
     border-radius:4px;
     color:#ffff00;
+    font-family:monospace;
 }
 
+.header{
+    color:#ADD8E6;
+    font-family: monospace;
+}
+
+.article h2 a{
+    color:#ADD8E6;
+    font-family: monospace;
+}
+
+.article p{
+    color:#5F9EA0;
+    font-family: monospace;
+}
+
+.logout-link button{
+    border:1px solid #00dba0;
+    padding:10px;
+    border-radius:4px;
+    color:#DC143C;
+    font-family:monospace;
+}
+
+.login a{
+    border: 1px solid #00dba0;
+    padding: 10px;
+    border-radius:4px;
+    color: #00CED1;
+    font-family:monospace;
+}
+
+.signup a{
+    border: 1px solid #00dba0;
+    padding: 10px;
+    border-radius:4px;
+    color: #20B2FF;
+    font-family:monospace;
+}
