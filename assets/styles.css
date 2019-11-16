@@ -172,7 +172,8 @@ footer{
     text-align:center;
 }
 .color{
-    color:#db8300;
+    color:#00afdb;
+    font-family: monospace;
 }
 
 a.about{
