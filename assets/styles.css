@@ -222,3 +222,23 @@ a.about{
     color: #20B2FF;
     font-family:monospace;
 }
+
+.search{
+    position:absolute;
+    top:90px;   
+}
+
+.search input[type="submit"]{
+    background: #00dba0;
+    border: 0;
+    color: #fff;
+    font-size: 1.0em;
+    border-radius: 50px;
+}
+   
+.search input[type="text"]{
+    border: 0;
+    color:#000 ;
+    font-size: 1.0em;
+    border-radius: 10px;
+}
