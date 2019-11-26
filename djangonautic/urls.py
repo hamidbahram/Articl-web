@@ -22,11 +22,11 @@ from django.contrib import admin
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('articles/', include('articles.urls')),
-    path('about/', views.about),
-    path('', article_views.article_list, name='home'),
+    path(r'admin/', admin.site.urls),
+    path(r'accounts/', include('accounts.urls')),
+    path(r'articles/', include('articles.urls')),
+    path(r'about/', views.about),
+    path(r'', article_views.article_list, name='home'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
