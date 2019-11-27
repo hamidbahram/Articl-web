@@ -27,7 +27,10 @@ urlpatterns = [
     path(r'articles/', include('articles.urls')),
     path(r'about/', views.about),
     path(r'', article_views.article_list, name='home'),
+    #ckeditor
+    path(r'ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

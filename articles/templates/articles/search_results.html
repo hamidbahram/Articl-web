@@ -1,13 +1,17 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-<a href="{% url 'articles:list' %}"><h1 class="header">search_results</h1></a>
+<a href="{% url 'articles:list' %}"><h1 class="header">search results</h1></a>
 
 <ul>
-  {% for article in object_list %}
-    <li>
-      <a class="header" href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a>
-    </li>
-  {% endfor %}
+  {% if object_list %}
+    {% for article in object_list %}
+      <li>
+        <a class="header" href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a>
+      </li>
+    {% endfor %}
+    {% else %}
+      <h1 class="header"> not found </h1>
+  {% endif %}
 </ul>
 {% endblock  %}

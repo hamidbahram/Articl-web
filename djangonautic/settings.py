@@ -37,8 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #apps
     'articles',
     'accounts',
+    
+    #ckeditor field
+    'ckeditor',
+    'ckeditor_uploader'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +134,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = '/media/'
+
+#ckeditor settings
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar':'Advance'
+    },
+}
+
+#ckeditor config
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT + 'ck_uploads/'
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_ALLOW_NONIMAGE_FILES = True

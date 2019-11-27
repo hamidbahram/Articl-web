@@ -3,13 +3,15 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+#ckeditor
+from ckeditor_uploader.fields import RichTextUploadingField 
 
 # Create your models here.
 
 class Article(models.Model):
     title            =  models.CharField(max_length=100)
     slug             =  models.SlugField()
-    body             =  models.TextField()
+    body             =  RichTextUploadingField(('content'), config_name = 'default')
     date             =  models.DateTimeField(_('create date'), auto_now_add=True, auto_now=False)
     updatedatetime   =  models.DateTimeField(_('update date'), auto_now_add=False, auto_now=True)
     # pip install pillow
