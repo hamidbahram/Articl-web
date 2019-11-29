@@ -242,3 +242,9 @@ a.about{
     font-size: 1.0em;
     border-radius: 10px;
 }
+
+.site-form label{
+    display:block;
+    color:#00dba0;
+    margin:10px 0 0 0;
+}

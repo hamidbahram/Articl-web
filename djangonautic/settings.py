@@ -134,12 +134,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_ROOT = '/media/'
+#ckeditor
+MEDIA_ROOT = 'media'
 
 #ckeditor settings
 CKEDITOR_CONFIGS = {
     'default':{
-        'toolbar':'Advance'
+        'toolbar':'Advance'     
     },
 }
 
