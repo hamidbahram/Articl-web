@@ -1,17 +1,13 @@
-On branch master
-Your branch is up to date with 'origin/master'.
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-	modified:   articles/admin.py
-	modified:   articles/models.py
-	modified:   articles/templates/articles/article_detail.html
-	modified:   articles/templates/articles/search_results.html
-	modified:   djangonautic/settings.py
-	modified:   djangonautic/urls.py
-	modified:   requirements.txt
-	modified:   templates/base_layout.html
-
-no changes added to commit (use "git add" and/or "git commit -a")
+certifi==2019.9.11
+chardet==3.0.4
+Django==2.2.6
+django-ckeditor==5.8.0
+django-js-asset==1.2.2
+heroku==0.1.4
+idna==2.8
+Pillow==6.2.0
+python-dateutil==1.5
+pytz==2019.2
+requests==2.22.0
+sqlparse==0.3.0
+urllib3==1.25.6
