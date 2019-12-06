@@ -6,6 +6,8 @@
     <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
         {% csrf_token %}
         {{form}}
+        <div class="g-recaptcha" data-sitekey="6LfF7MUUAAAAAHgAx5Vdiy61ybZM-_TkX-57ECIH"></div>
         <input type="submit" value="Signup">
     </form>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}
