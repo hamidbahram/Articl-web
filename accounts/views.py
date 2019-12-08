@@ -11,9 +11,10 @@ def signup_view(request):
     if request.method =='POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            # user = form.save()
             #log the user in
-            login(request, user)
+            # login(request, user)
+            # return redirect('articles:list')
             #recaptcha
             clientkey = request.POST['g-recaptcha-response']
             secretkey = '6LfF7MUUAAAAAOQsXKZyLppbrTFlUzU2A03xsKnB'
@@ -27,6 +28,8 @@ def signup_view(request):
             verify = response['success']
             print('your success is : ',verify)
             if verify:
+                user = form.save()
+                login(request, user)
                 return redirect('articles:list')
             else:
                 form = UserCreationForm
