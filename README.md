@@ -1,6 +1,7 @@
-# Articl-web
+# Article-web
 # try-django-2.2.6
-# http://hamidbahram.pythonanywhere.com/articles/
+- [Visit the site](http://hamidbahram.pythonanywhere.com/articles/)
+
 
 installation
 --------------------
