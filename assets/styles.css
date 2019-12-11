@@ -245,6 +245,15 @@ a.about{
 
 .site-form label{
     display:block;
-    color:#00dba0;
+    color: #00dba0;
     margin:10px 0 0 0;
+}
+
+.delete input[type="submit"]{
+    background: #a50101b0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 20px 20px;
 }

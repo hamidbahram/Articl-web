@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.http import HttpResponse
 from django.db.models import Q
 from .models import Article
 from . import forms
+from django.contrib import messages
 
 # Create your views here.
 
@@ -31,6 +32,8 @@ def article_detail(request, slug):
 
 @login_required(login_url = "/accounts/login/")
 def article_create(request):
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES)
         if form.is_valid():
@@ -45,3 +48,13 @@ def article_create(request):
 
 def article_aboutme(request):
     return render(request, "articles/aboutme.html")
+
+def delete(request, slug):
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
+    # article = Article.objects.get(id = id)
+    article = get_object_or_404(Article, slug=slug)
+    if article.delete():
+        messages.success(request, ('item deleted successfully!'), extra_tags='alert alert-success')
+        return redirect('articles:list')
+    # return render(request,'articles/article_list.html', {'article':article})

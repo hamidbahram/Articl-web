@@ -8,6 +8,7 @@ urlpatterns = [
     path(r'', views.article_list, name="list"),
     path(r'create/', views.article_create, name="create"),
     path(r'aboutme/', views.article_aboutme, name="aboutme"),
-    path(r'search/', SearchResultsView.as_view(), name='search_results'),
+    path(r'search/', SearchResultsView.as_view(), name="search_results"),
     re_path(r'(?P<slug>[\w-]+)/', views.article_detail, name="detail"),
+    re_path(r'delete(?P<slug>[\w-]+)', views.delete, name="delete"),
 ]

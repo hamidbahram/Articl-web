@@ -7,6 +7,11 @@
         <h2 class="header">{{ article.title }}</h2>
         <p>{{ article.body |safe }}</p>
         <p>{{ article.date }}</p>
+        <div class="delete">
+            <form action="{% url 'articles:delete' slug=article.slug %}" method="get">
+                <input type="submit" value="delete">
+            </form>
+        </div>
     </div>
 </div>
 {% endblock  %}
