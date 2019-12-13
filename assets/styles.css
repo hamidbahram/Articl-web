@@ -257,3 +257,12 @@ a.about{
     border-radius: 4px;
     margin: 20px 20px;
 }
+
+.messages{
+    background:none;
+    color: #00dba0;
+    font-size: 1em;
+    text-align:center;
+    padding:0px;
+    border: 1px solid;
+}

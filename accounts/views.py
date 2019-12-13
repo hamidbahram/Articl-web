@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
+from django.contrib import messages
 import requests
 import json
 
@@ -30,6 +31,7 @@ def signup_view(request):
             if verify:
                 user = form.save()
                 login(request, user)
+                messages.success(request, ('tanks for join me :)'), extra_tags='alert alert-success')
                 return redirect('articles:list')
             else:
                 form = UserCreationForm
@@ -45,6 +47,7 @@ def login_view(request):
             #log in the user
             user = form.get_user()
             login(request, user)
+            messages.success(request, ('your login!'), extra_tags='alert alert-success')
             if 'next' in request.POST:
                 return redirect(request.POST.get('next'))
             else:
@@ -56,4 +59,5 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
+        messages.success(request, ('your logout!'), extra_tags='alert alert-success')
         return redirect('articles:list')

@@ -10,6 +10,14 @@
         </form>
     </div>  
 
+    {% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+    {% endif %}
+<br>
     <div class="articles">
         {% for article in articles %}
             <div class="article">

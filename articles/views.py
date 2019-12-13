@@ -41,6 +41,7 @@ def article_create(request):
             instance = form.save(commit=False)
             instance.author = request.user
             instance.save()
+            messages.success(request, ('Articles create'), extra_tags='alert alert-success')
             return redirect('articles:list')
     else:
         form = forms.CreateArticle()
