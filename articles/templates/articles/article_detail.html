@@ -19,13 +19,13 @@
         <p> update : {{ article.updatedatetime }}</p>
         
         <div class="edit">
-            <form action="{% url 'articles:edit' id=article.id %}">
+            <form action="{% url 'articles:edit' slug=article.slug %}">
                 <input type="submit" value="edit">
             </form>
         </div>
     
         <div class="delete">
-            <form action="{% url 'articles:delete' id=article.id %}" method="get">
+            <form action="{% url 'articles:delete' slug=article.slug %}" method="get">
                 <input type="submit" value="delete">
             </form>
         </div>

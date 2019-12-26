@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.contrib.auth.models import User
-from django.db import models
-from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
+from django.urls import reverse
+from django.db import models
 #ckeditor
 from ckeditor_uploader.fields import RichTextUploadingField 
 
@@ -36,9 +36,9 @@ class Article(models.Model):
         #return self.body[:50]
         return "{}".format(self.body[:50]) + " ..."
 
-    def get_absolute_url(self):
-        return reverse("articles:detail", kwargs={"id": self.id})
-
     # def get_absolute_url(self):
-    #     return reverse("articles:detail", kwargs={"slug": self.slug})
+    #     return reverse("articles:detail", kwargs={"id": self.id})
+
+    def get_absolute_url(self):
+        return reverse("articles:detail", kwargs={"slug": self.slug})
     
