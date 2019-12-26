@@ -21,13 +21,32 @@
     <div class="articles">
         {% for article in articles %}
             <div class="article">
-                <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+                <!-- <h2><a href="{% url 'articles:detail' id=article.id %}">{{ article.title }}</a></h2> -->
+                <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
                 <p>{{ article.body|safe|truncatechars_html:50 }}</p>
                 {% comment %} <p>{{ article.snippet |safe}}</p> {% endcomment %}
                 <p> create : {{ article.date }}</p>
-                <p> update : {{ article.updatedatetime }}</p>
                 <p class="author">added by {{ article.author.username }}</p>
             </div>
         {% endfor %}
     </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if articles.has_previous %}
+                <!-- <a href="?page=1">&laquo; first</a> -->
+                <a href="?page={{ articles.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+            </span>
+    
+            {% if articles.has_next %}
+                <a href="?page={{ articles.next_page_number }}">next</a>
+                <!-- <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a> -->
+            {% endif %}
+        </span>
+    </div>
+
 {% endblock  %}
