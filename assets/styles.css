@@ -137,15 +137,6 @@ a.highlight{
     padding: 0;
 }
 
-.site-form input[type="submit"]{
-    background: #00dba0;
-    border: 0;
-    color: #fff;
-    font-size: 1.2em;
-    border-radius: 4px;
-    margin: 10px 0;
-}
-
 html, body{
     height:100%;
     margin:0;
@@ -256,6 +247,7 @@ a.about{
     font-size: 1.2em;
     border-radius: 4px;
     margin: 20px 20px;
+    display:grid;
 }
 
 .messages{
@@ -265,4 +257,80 @@ a.about{
     text-align:center;
     padding:0px;
     border: 1px solid;
+}
+
+
+
+.edit input[type="submit"]{
+    background: #1976d2;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 20px;
+    display:grid;
+}
+
+.editbutton button[type="submit"]{
+    background: #00dba0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.edit-article input, .edit-article textarea{
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 10px;
+}
+
+.edit-article label{
+    display:block;
+}
+
+.edit-form button[type="submit"]{
+    background: #00dba0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.site-form button[type="submit"]{
+    background: #00dba0;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.pagination{
+    text-align:center;
+    margin: 20px 0 0 0;
+}
+
+.pagination a{
+    background: #009688;
+    border: 0;
+    color: #fff;
+    font-size: 1.2em;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.user{
+    padding:5px;
+    border: 1px solid #00dba0;
+    border-radius: 4px; 
+}
+
+.user h1{
+    font-family:monospace;
+    font-size: small;
+    color:#FFEB3B;
+    text-align:center;
 }

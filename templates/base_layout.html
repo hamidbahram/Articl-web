@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <title>Article</title>
+    <link rel="icon" href="static/australian-man.png" type="image/x-icon" />        
+    {% comment %} <link rel="shortcut icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" /> {% endcomment %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
@@ -15,6 +17,12 @@
             <ul>
                 {% comment %} <li><a href="{% url 'articles:aboutme' %}" class="about">about-me</a></li> {% endcomment %}
                 {% if user.is_authenticated %}
+                {% block user %}
+                    <div class="user">
+                        <h1>login: {{ user.get_username }}</h1>
+                    </div>
+                    <br>
+                {% endblock user %}
                 <li>
                     <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                         {% csrf_token %}

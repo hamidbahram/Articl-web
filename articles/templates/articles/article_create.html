@@ -1,12 +1,13 @@
 {% extends 'base_layout.html' %}
+{% load i18n %}
 
 {% block content %}
     <div class="create-article">
         <h2 class="color">Create an Awesome New Article</h2>
-        <form class="site-form" action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
+        <form class="site-form" action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form}}
-            <input type="submit" value="Create">
+            <button type="submit">{% trans "Create"  %}</button>
         </form>
     </div>
     <script src="/static/slugify.js"></script>

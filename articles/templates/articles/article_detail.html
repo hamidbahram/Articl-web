@@ -1,14 +1,31 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 <div class="article-detail">
     <div class="article">
         <img src="{{ article.thumb.url }}" alt="not found">
         <h2 class="header">{{ article.title }}</h2>
-        <p>{{ article.body |safe }}</p>
-        <p>{{ article.date }}</p>
+        <p>{{ article.body|safe }}</p>
+        <p> create : {{ article.date }}</p>
+        <p> update : {{ article.updatedatetime }}</p>
+        
+        <div class="edit">
+            <form action="{% url 'articles:edit' id=article.id %}">
+                <input type="submit" value="edit">
+            </form>
+        </div>
+    
         <div class="delete">
-            <form action="{% url 'articles:delete' slug=article.slug %}" method="get">
+            <form action="{% url 'articles:delete' id=article.id %}" method="get">
                 <input type="submit" value="delete">
             </form>
         </div>

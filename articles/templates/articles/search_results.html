@@ -6,9 +6,15 @@
 <ul>
   {% if object_list %}
     {% for article in object_list %}
-      <li>
-        <a class="header" href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a>
-      </li>
+      <div class="article">
+          <!-- <h2><a href="{% url 'articles:detail' id=article.id %}">{{ article.title }}</a></h2> -->
+          <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+          <p>{{ article.body|safe|truncatechars_html:50 }}</p>
+          {% comment %} <p>{{ article.snippet |safe}}</p> {% endcomment %}
+          <p> create : {{ article.date }}</p>
+          <p class="author">added by {{ article.author.username }}</p>
+      </div>
+      <br>
     {% endfor %}
     {% else %}
       <h1 class="header"> not found </h1>
