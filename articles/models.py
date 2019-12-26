@@ -37,5 +37,8 @@ class Article(models.Model):
         return "{}".format(self.body[:50]) + " ..."
 
     def get_absolute_url(self):
-        return reverse("articles:detail", kwargs={"slug": self.slug})
+        return reverse("articles:detail", kwargs={"id": self.id})
+
+    # def get_absolute_url(self):
+    #     return reverse("articles:detail", kwargs={"slug": self.slug})
     
