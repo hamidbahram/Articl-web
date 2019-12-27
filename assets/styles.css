@@ -110,6 +110,10 @@ nav button{
     padding: 10px;
 }
 
+.create-article input, .create-article textarea{
+    border: 1px solid red;
+}
+
 a.highlight{
     border: 1px solid #00dba0;
     padding: 10px;
@@ -280,14 +284,24 @@ a.about{
     margin: 10px 0;
 }
 
+.edit-article{
+    margin-top:60px;
+    border: 1px solid #00dba0;
+    padding:20px;
+}
+
 .edit-article input, .edit-article textarea{
-    display: block;
-    margin: 20px 0 0 0;
-    padding: 10px;
+    display:block;
+    margin:20px 0 0 0;
+    padding:10px;
 }
 
 .edit-article label{
-    display:block;
+   display:block;
+}
+
+.edit-article input, .edit-article textarea{
+    border: 1px solid red;
 }
 
 .edit-form button[type="submit"]{
