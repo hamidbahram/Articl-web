@@ -44,7 +44,11 @@ INSTALLED_APPS = [
     
     #ckeditor field
     'ckeditor',
-    'ckeditor_uploader'
+    'ckeditor_uploader',
+
+    #api
+    'django_filters', # for use DjangoFilterBackend in filtering apis
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
