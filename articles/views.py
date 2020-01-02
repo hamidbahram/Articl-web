@@ -38,8 +38,8 @@ def article_detail(request, slug):
 
 @login_required(login_url = "/accounts/login/")
 def article_create(request):
-    if not request.user.is_staff or not request.user.is_superuser:
-        raise Http404
+    # if not request.user.is_staff or not request.user.is_superuser:
+    #     raise Http404
     if request.method == 'POST':
         form = CreateArticle(request.POST, request.FILES)
         if form.is_valid():

@@ -16,13 +16,15 @@ class Article(models.Model):
     updatedatetime   =  models.DateTimeField(_('update date'), auto_now_add=False, auto_now=True)
     # pip install pillow
     thumb            =  models.ImageField(default='default.png', blank=True)
-    author           =  models.ForeignKey(User,
+    author           =  models.ForeignKey(
+                                User,
                                 on_delete=models.CASCADE,
                                 default=None,
                                 blank = True,
                                 null = True,
                                 verbose_name = _('Owner'),
-                                help_text = _('choose owner'))
+                                help_text = _('choose owner')
+                                )
 
     class Meta:
         verbose_name = _('Article')
