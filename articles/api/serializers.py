@@ -12,6 +12,11 @@ class PostDetailSerializer(ModelSerializer):
         model = Article
         fields = '__all__'
 
+class PostCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Article
+        fields = '__all__'
+
 class PostDeleteSerializer(ModelSerializer):
     class Meta:
         model = Article
