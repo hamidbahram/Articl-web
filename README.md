@@ -8,8 +8,9 @@ installation
 - requirements:
  - python 3.7
   install following packages via **pip** or **easy_install**
-- `pip install chardet==3.0.4`
 - `pip install Django==2.2.6`
+- `pip install djangorestframework==3.5.2`
+- `pip install django-filter==1.0.1`
 - `pip install django-ckeditor==5.8.0`
 - `pip install django-js-asset==1.2.2`
 - `pip install idna==2.8`
