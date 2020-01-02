@@ -16,3 +16,8 @@ class PostDeleteSerializer(ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
+
+class PostUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = Article
+        fields = '__all__'

@@ -7,4 +7,5 @@ urlpatterns = [
     path(r'', views.PostListAPIView.as_view(), name="post-list"),
     re_path(r'detail/(?P<slug>[\w-]+)$', views.PostDetailAPIView.as_view(), name="detail-post"), 
     re_path(r'(?P<slug>[\w-]+)/delete', views.PostDeleteAPIView.as_view(), name="delete-post"),
+    re_path(r'(?P<slug>[\w-]+)/edit', views.PostUpdateAPIView.as_view(), name="delete-post"),
 ]
