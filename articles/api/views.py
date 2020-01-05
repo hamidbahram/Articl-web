@@ -6,6 +6,7 @@ from articles.api.serializers import (
     PostCreateSerializer,
     PostDeleteSerializer,
     PostUpdateSerializer,
+    PostDeleteUpdateSerializer,
 )
 
 class PostListAPIView(generics.ListAPIView):
@@ -22,12 +23,17 @@ class PostCreateAPIView(generics.CreateAPIView):
     serializer_class = PostDeleteSerializer
     lookup_field = 'slug'
 
-class PostDeleteAPIView(generics.DestroyAPIView):
+class PostDeleteAPIView(generics.RetrieveDestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = PostDeleteSerializer
     lookup_field = 'slug'
 
-class PostUpdateAPIView(generics.UpdateAPIView):
+class PostUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Article.objects.all()
     serializer_class = PostUpdateSerializer
+    lookup_field = 'slug'
+
+class PostDeleteUpdateAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Article.objects.all()
+    serializer_class = PostDeleteUpdateSerializer
     lookup_field = 'slug'

@@ -26,3 +26,8 @@ class PostUpdateSerializer(ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
+
+class PostDeleteUpdateSerializer(ModelSerializer):
+    class Meta:
+        model = Article
+        fields = '__all__'
