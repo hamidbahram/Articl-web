@@ -29,11 +29,11 @@ installation
 
 Create url: open teminal and type this url. Note that httpie must be installed.
 
-`$ http -a <USERNAME>:<PASSWORD> http://127.0.0.1:8000/api/create/ title='<YOUR_TITLE>' content='<YOUR_CONTENT>' owner=<OWNER_ID>`
+`$ http -a <USERNAME>:<PASSWORD> http://127.0.0.1:8000/api/create/ title='<YOUR_TITLE>' slug='<YOUR_SLUG>' body='YOUR_BODY' owner=<OWNER_ID>`
 
 Delete url: open teminal and type this url.
 
-`$ http -a <USERNAME>:<PASSWORD> DELETE http://127.0.0.1:8000/api/<POST_ID>/delete`
+`$ http -a <USERNAME>:<PASSWORD> DELETE http://127.0.0.1:8000/api/<POST_ID / POST_SLUG >/delete`
 
 Update url: open teminal and type this url.
 
