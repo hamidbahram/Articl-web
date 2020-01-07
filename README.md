@@ -37,7 +37,7 @@ Delete url: open teminal and type this url.
 
 Update url: open teminal and type this url.
 
-`$ http -a <USERNAME>:<PASSWORD> PUT http://127.0.0.1:8000/api/<POST_ID>/edit title='<YOUR_TITLE>' content='<YOUR_CONTENT>' owner=<OWNER_ID>`
+`$ http -a <USERNAME>:<PASSWORD> PUT http://127.0.0.1:8000/api/<POST_ID / POST_SLUG >/edit title='<YOUR_TITLE>' content='<YOUR_CONTENT>' owner=<OWNER_ID>`
 
 #### Follow me
 - [Email](https://hamidbahram2@gmail.com)
