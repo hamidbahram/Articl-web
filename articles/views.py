@@ -27,7 +27,7 @@ def article_list(request):
     paginator = Paginator(articles, 3) # Show 3 contacts per page
     page = request.GET.get('page')
     articles = paginator.get_page(page)
-    
+    # import pdb; pdb.set_trace()
     return render(request,'articles/article_list.html', {'articles':articles})
 
 def article_detail(request, slug):

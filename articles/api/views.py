@@ -1,5 +1,14 @@
+from django.core.exceptions import PermissionDenied
 from articles.models import Article
 from rest_framework import generics 
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+    IsAdminUser, #request.user.is_staff == True
+    IsAuthenticatedOrReadOnly,
+)
+# custom persmission
+from articles.api.permissions import AuthorCanManageOrReadOnly
 from articles.api.serializers import (
     PostListSerializer, 
     PostDetailSerializer, 
@@ -8,8 +17,6 @@ from articles.api.serializers import (
     PostUpdateSerializer,
     PostDeleteUpdateSerializer,
 )
-
-from django.core.exceptions import PermissionDenied
 
 class PostListAPIView(generics.ListAPIView):
     queryset = Article.objects.all()
@@ -24,6 +31,7 @@ class PostCreateAPIView(generics.CreateAPIView):
     queryset = Article.objects.all()
     serializer_class = PostCreateSerializer
     lookup_field = 'slug'
+    permission_classes = [IsAuthenticated,]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -33,6 +41,7 @@ class PostDeleteAPIView(generics.RetrieveDestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = PostDeleteSerializer
     lookup_field = 'slug'
+    permission_classes = [AuthorCanManageOrReadOnly,]
 
     def perform_destroy(self, serializer):
         # just author can delet post
@@ -46,6 +55,7 @@ class PostUpdateAPIView(generics.RetrieveUpdateAPIView):
     queryset = Article.objects.all()
     serializer_class = PostUpdateSerializer
     lookup_field = 'slug'
+    permission_classes = [AuthorCanManageOrReadOnly,]
 
     def partial_update(self, serializer):
         serializer.save(author=self.request.user)    
@@ -55,6 +65,8 @@ class PostDeleteUpdateAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = PostDeleteUpdateSerializer
     lookup_field = 'slug'
+    permission_classes = [AuthorCanManageOrReadOnly,]
+
 
 '''
 data = {
