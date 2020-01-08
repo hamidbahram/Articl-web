@@ -4,8 +4,9 @@ from articles.models import Article
 class PostListSerializer(ModelSerializer):
     class Meta:
         model  = Article
-        fields = ('title', 'slug', 'id', 'author')
+        exclude = ('thumb',)
         # fields = '__all__'
+        # fields = ('title', 'slug', 'id', 'author')
 
 class PostDetailSerializer(ModelSerializer):
     class Meta:
