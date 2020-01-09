@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from django.core.exceptions import PermissionDenied
 from articles.models import Article
 from rest_framework import generics 
@@ -22,6 +23,8 @@ from rest_framework.permissions import (
 class PostListAPIView(generics.ListAPIView):
     # queryset = Article.objects.all()
     serializer_class = PostListSerializer
+    filter_backends = [DjangoFilterBackend,]
+    filterset_fields = ['title','body','author__username']
 
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_superuser:
