@@ -1,14 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from articles.models import Article
 from rest_framework import generics 
-from rest_framework.permissions import (
-    AllowAny,
-    IsAuthenticated,
-    IsAdminUser, #request.user.is_staff == True
-    IsAuthenticatedOrReadOnly,
-)
-# custom persmission
-from articles.api.permissions import AuthorCanManageOrReadOnly
+from django.db.models import Q
 from articles.api.serializers import (
     PostListSerializer, 
     PostDetailSerializer, 
@@ -17,10 +10,39 @@ from articles.api.serializers import (
     PostUpdateSerializer,
     PostDeleteUpdateSerializer,
 )
+# custom persmission
+from articles.api.permissions import AuthorCanManageOrReadOnly
+from rest_framework.permissions import (
+    AllowAny,
+    IsAuthenticated,
+    IsAdminUser, #request.user.is_staff == True
+    IsAuthenticatedOrReadOnly,
+)
 
 class PostListAPIView(generics.ListAPIView):
-    queryset = Article.objects.all()
+    # queryset = Article.objects.all()
     serializer_class = PostListSerializer
+
+    def get_queryset(self, *args, **kwargs):
+        if self.request.user.is_superuser:
+            # superuser can see all posts
+            queryset = Article.objects.all()
+        elif not self.request.user.is_anonymous:
+            # otherwise every user can see his posts
+            queryset = Article.objects.filter(author=self.request.user)
+        else:
+            return None
+        # Custom search. It is not related to rest_framework
+        query = self.request.GET.get('q')
+        if query:
+            # if user search for something by 'q' keyword
+            queryset = queryset.filter(
+                Q(title__icontains=query)|
+                Q(slug__icontains=query)|
+                Q(body__icontains=query)|
+                Q(author__username__icontains=query)
+                ).distinct().order_by('-date')
+        return queryset
 
 class PostDetailAPIView(generics.RetrieveAPIView):
     queryset = Article.objects.all()
