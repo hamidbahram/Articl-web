@@ -43,6 +43,8 @@ Update url: open teminal and type this url.
 
 > - Django Server Error: port is already in use: 
 > - A more simple solution just type `sudo fuser -k 8000/tcp`. This should kill all the processes associated with port 8000.
+> **EDIT:**
+> - For osx users you can use `sudo lsof -t -i tcp:8000 | xargs kill -9`.
 
 #### Follow me
 - [Email](https://hamidbahram2@gmail.com)
