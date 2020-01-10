@@ -1,8 +1,12 @@
+from articles.models import Article
 from django_filters.rest_framework import DjangoFilterBackend
 from django.core.exceptions import PermissionDenied
-from articles.models import Article
-from rest_framework import generics 
 from django.db.models import Q
+from rest_framework import generics 
+from rest_framework.filters import (
+    SearchFilter,
+    OrderingFilter,
+)
 from articles.api.serializers import (
     PostListSerializer, 
     PostDetailSerializer, 
@@ -23,7 +27,8 @@ from rest_framework.permissions import (
 class PostListAPIView(generics.ListAPIView):
     # queryset = Article.objects.all()
     serializer_class = PostListSerializer
-    filter_backends = [DjangoFilterBackend,]
+    filter_backends = [SearchFilter, DjangoFilterBackend,]
+    search_fields = ['title','body','author__username']
     filterset_fields = ['title','body','author__username']
 
     def get_queryset(self, *args, **kwargs):
