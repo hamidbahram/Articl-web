@@ -50,6 +50,7 @@ Update url: open teminal and type this url.
 > **To see the port table:**
 > - type `netstat -ntlp`.
 > - So now just close the port in which Django/python running already by killing the process associated with it `kill -9 PID`.
+
 > **for example:**
 > - `kill -9 6599`.
 
