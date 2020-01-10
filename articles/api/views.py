@@ -27,8 +27,9 @@ from rest_framework.permissions import (
 class PostListAPIView(generics.ListAPIView):
     # queryset = Article.objects.all()
     serializer_class = PostListSerializer
-    filter_backends = [SearchFilter, DjangoFilterBackend,]
+    filter_backends = [SearchFilter, OrderingFilter, DjangoFilterBackend,]
     search_fields = ['title','body','author__username']
+    ordering_fields = ['title', 'author__username', 'date', 'updatedatetime']
     filterset_fields = ['title','body','author__username']
 
     def get_queryset(self, *args, **kwargs):
