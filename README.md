@@ -40,8 +40,9 @@ Update url: open teminal and type this url.
 `$ http -a <USERNAME>:<PASSWORD> PUT http://127.0.0.1:8000/api/<POST_ID / POST_SLUG >/edit title='<YOUR_TITLE>' content='<YOUR_CONTENT>' owner=<OWNER_ID>`
 
 > **Note:**
+
 > - Django Server Error: port is already in use: 
-> - A more simple solution just type 'sudo fuser -k 8000/tcp'. This should kill all the processes associated with port 8000.
+> - A more simple solution just type `sudo fuser -k 8000/tcp`. This should kill all the processes associated with port 8000.
 
 #### Follow me
 - [Email](https://hamidbahram2@gmail.com)
