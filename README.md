@@ -47,6 +47,11 @@ Update url: open teminal and type this url.
 > **EDIT:**
 > - For osx users you can use `sudo lsof -t -i tcp:8000 | xargs kill -9`.
 
+> **To see the port table:**
+> - type `netstat -ntlp`.
+> - So now just close the port in which Django/python running already by killing the process associated with it `kill -9 PID`.
+
+
 #### Follow me
 - [Email](https://hamidbahram2@gmail.com)
 - [Github](https://github.com/hamidbahram)
