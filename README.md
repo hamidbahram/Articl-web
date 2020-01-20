@@ -29,7 +29,7 @@ installation
 
 Create url: open teminal and type this url. Note that httpie must be installed.
 
-`$ http -a <USERNAME>:<PASSWORD> http://127.0.0.1:8000/api/create/ title='<YOUR_TITLE>' slug='<YOUR_SLUG>' body='YOUR_BODY' owner=<OWNER_ID>`
+`$ http -a <USERNAME>:<PASSWORD> http://127.0.0.1:8000/api/create/ title='<YOUR_TITLE>' slug='<YOUR_SLUG>' body='<YOUR_BODY>' owner=<OWNER_ID>`
 
 Delete url: open teminal and type this url.
 
