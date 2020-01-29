@@ -1,6 +1,18 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+
+    <style>
+        body{
+            background-color:rgb(11, 57, 206);
+        }
+    </style>
+
+    <!-- Header -->
+	<header id="header" class="alt">
+		<a href="#menu">Menu</a>
+	</header>
+
     <h1 class='color'>sign up</h1>
     <br>
     <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
@@ -11,3 +23,6 @@
     </form>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}
+
+{% block section %}
+{% endblock section %}

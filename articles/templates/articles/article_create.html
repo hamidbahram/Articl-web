@@ -3,12 +3,15 @@
 
 {% block content %}
     <div class="create-article">
-        <h2 class="color">Create an Awesome New Article</h2>
+        <h2 class="color"><a href="{% url 'articles:list' %}">Create an Awesome New Article</a></h2>
         <form class="site-form" action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form}}
-            <button type="submit">{% trans "Create"  %}</button>
+            <button type="submit">{% trans "Create" %}</button>
         </form>
     </div>
-    <script src="/static/slugify.js"></script>
+    <script src="/static/js/slugify.js"></script>
 {% endblock  %}
+
+{% block section %}
+{% endblock section %}

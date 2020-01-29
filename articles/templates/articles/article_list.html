@@ -1,52 +1,69 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    <h1 class="header">Article list</h1>
 
-    <div class="search">
-        <form action="{% url 'articles:search_results' %}" method="get">
-            <input name="q" type="text" placeholder="Search ...">
-            <input type="submit" value="Search">
-        </form>
-    </div>  
+    <!-- Header -->
+    	<header id="header" class="alt">
+    		<div class="logo"><img src="/static/css/logo.png" alt="Logo"></div>
+    		<a href="#menu">Menu</a>
+		</header>
+	
+	<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<header>
+					<h1>Articles</h1>
+					<p> Welcome to my <br /> site ❤️</p>
+				</header>
+				<a href="#main" class="button big scrolly">Learn More</a>
+			</div>
+		</section>
 
-    {% if messages %}
-<div class="messages">
-    {% for message in messages %}
-    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-</div>
-    {% endif %}
-<br>
-    <div class="articles">
-        {% for article in articles %}
-            <div class="article">
-                <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
-                <!-- <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2> -->
-                <p>{{ article.body|safe|truncatechars_html:50 }}</p>
-                {% comment %} <p>{{ article.snippet |safe}}</p> {% endcomment %}
-                <p> create : {{ article.date }}</p>
-                <p class="author">added by {{ article.author.username }}</p>
-            </div>
-        {% endfor %}
-    </div>
+	<!-- Main -->
+		<div id="main">
+			<!-- Section -->
+				<section class="wrapper style1">
+					<div class="inner">
+						<!-- 2 Columns -->
+						{% for article in articles %}
+							<div class="flex flex-2">
+								<div class="col col1 first">
+									<div class="image round fit">
+										<br>
+										<img src="{{ article.thumb.url }}" alt="not found">
+									</div>
+								</div>
+								<div class="col col2">
+									<br>
+									<h3><a href="{% url 'articles:detail' slug=article.slug %}"></a>{{ article.title }}</h3>
+									<p>{{ article.body|safe|truncatechars_html:50 }}</p>
+									<!-- <p>{{ article.snippet |safe}}</p> -->
+									<p>create : {{ article.date }}</p>
+									<p class="author">added by {{ article.author.username }}</p>
+									<a href="{% url 'articles:detail' slug=article.slug %}" class="button">Learn More</a>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</section>
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if articles.has_previous %}
-                <!-- <a href="?page=1">&laquo; first</a> -->
-                <a href="?page={{ articles.previous_page_number }}">previous</a>
-            {% endif %}
-    
-            <span class="current">
-                Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
-            </span>
-    
-            {% if articles.has_next %}
-                <a href="?page={{ articles.next_page_number }}">next</a>
-                <!-- <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a> -->
-            {% endif %}
-        </span>
-    </div>
-
-{% endblock  %}
+		<!-- pagination -->
+			<div class="pagination">
+        		<span class="step-links">
+        		    {% if articles.has_previous %}
+        		        <!-- <a href="?page=1">&laquo; first</a> -->
+        		        <a href="?page={{ articles.previous_page_number }}">previous</a>
+        		    {% endif %}
+				
+        		    <span class="current">
+        		        Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+        		    </span>
+				
+        		    {% if articles.has_next %}
+        		        <a href="?page={{ articles.next_page_number }}">next</a>
+        		        <!-- <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a> -->
+        		    {% endif %}
+        		</span>
+    		</div>
+	
+{% endblock content %}
