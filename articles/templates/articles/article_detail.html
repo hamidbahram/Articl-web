@@ -2,33 +2,61 @@
 
 {% block content %}
 
+<!-- Header -->
+<header id="header" class="alt">
+	<!-- <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt=""></a></div> -->
+	<a href="#menu">Menu</a>
+</header>
+
+<!-- Banner -->
+<section id="bannerr">
+	<div class="inner">
+		<header>
+			<h1><img src="{{ article.thumb.url }}" alt="" /></h1>
+		</header>
+	</div>
+</section>
+
+
 {% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+    <p> {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
     {% endfor %}
 </ul>
-{% endif %}
+{% endif %} 
 
-<div class="article-detail">
-    <div class="article">
-        <img src="{{ article.thumb.url }}" alt="not found">
-        <h2 class="header">{{ article.title }}</h2>
-        <p>{{ article.body|safe }}</p>
-        <p> create : {{ article.date }}</p>
-        <p> update : {{ article.updatedatetime }}</p>
-        
-        <div class="edit">
-            <form action="{% url 'articles:edit' slug=article.slug %}">
-                <input type="submit" value="edit">
-            </form>
-        </div>
+	<!-- Section -->
+	    <section class="wrapper">
+	    	<div class="inner">
+	    		<header class="align-center">
+	    			<h1><a href="{% url 'articles:list' %}"> {{ article.title }} </a></h1>
+	    			<p>Description</p>
+	    		</header>
+	    		<div class="flex flex-2">
+	    			<div class="col col2">
+	    				<h4>{{ article.body|safe }}</h4>
+	    				<p> create :  {{ article.date }}</p>
+	    				<p> update :  {{ article.updatedatetime }}</p>
+	    			</div>
+	    			<div class="col col1 first">
+	    				<div class="image round fit">
+	    					<img src="{{ article.thumb.url }}" alt="" />
+	    				</div>
+	    			</div>
+	    		</div>
+                
+                <div class="edit">
+                    <form action="{% url 'articles:edit' slug=article.slug %}">
+                        <input type="submit" value="edit">
+                    </form>
+                </div>
     
-        <div class="delete">
-            <form action="{% url 'articles:delete' slug=article.slug %}" method="get">
-                <input type="submit" value="delete">
-            </form>
-        </div>
-    </div>
-</div>
-{% endblock  %}
+                <div class="delete">
+                    <form action="{% url 'articles:delete' slug=article.slug %}" method="get">
+                        <input type="submit" value="delete">
+                    </form>
+                </div>
+	    	</div>
+	    </section>
+{% endblock content %}

@@ -1,6 +1,18 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
+
+    <style>
+        body{
+            background-color:rgb(4, 18, 63);
+        }
+    </style>
+
+    <!-- Header -->
+    	<header id="header" class="alt">
+    		<a href="#menu">Menu</a>
+		</header>
+
     <h1 class="color">Log in</h1>
     <br>
     <form class="site-form" action="{% url 'accounts:login' %}" method="post">
@@ -12,3 +24,6 @@
         <input type="submit" value="Login">
     </form>
 {% endblock  %}
+
+{% block section %}
+{% endblock section %}
