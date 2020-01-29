@@ -2,29 +2,29 @@
 
 {% block content %}
 
-<!-- Header -->
-<header id="header" class="alt">
-	<!-- <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt=""></a></div> -->
-	<a href="#menu">Menu</a>
-</header>
-
-<!-- Banner -->
-<section id="bannerr">
-	<div class="inner">
-		<header>
-			<h1><img src="{{ article.thumb.url }}" alt="" /></h1>
+		 <!-- Header -->
+    	<header id="header" class="alt">
+    		<div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt="Logo"></a></div>
+    		<a href="#menu">Menu</a>
 		</header>
-	</div>
-</section>
+	
+	<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<header>
+					{% comment %} <img src="{{ article.thumb.url }}" alt="" /> {% endcomment %}
+				</header>
+			</div>
+		</section>
 
 
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <p> {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
-    {% endfor %}
-</ul>
-{% endif %} 
+		{% if messages %}
+		<ul class="messages">
+		    {% for message in messages %}
+		    <p> {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+		    {% endfor %}
+		</ul>
+		{% endif %} 
 
 	<!-- Section -->
 	    <section class="wrapper">
@@ -60,3 +60,6 @@
 	    	</div>
 	    </section>
 {% endblock content %}
+
+{% block section %}
+{% endblock section %}

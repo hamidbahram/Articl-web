@@ -21,18 +21,19 @@
                 {% if user.is_authenticated %}
 	    		    <li><a href="{% url 'articles:create' %}">New Article</a></li>
 	    		    <li>
+	    		    	<div class="search">
+	    		    		<form action="{% url 'articles:search_results' %}" method="get">
+                                <input style="background-color: aliceblue; "name="q" type="text" placeholder="Search ...">
+                                <br>
+	    		    			<input type="submit" value="Search">
+	    		    		</form>
+	    		    	</div>  
+	    		    </li>
+	    		    <li>
 	    		    	<form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
                             {% csrf_token %}
                             <button type="submit">Logout</button>
                         </form>
-	    		    </li>
-	    		    <li>
-	    		    	<div class="search">
-	    		    		<form action="{% url 'articles:search_results' %}" method="get">
-	    		    			<input name="q" type="text" placeholder="Search ...">
-	    		    			<input type="submit" value="Search">
-	    		    		</form>
-	    		    	</div>  
 	    		    </li>
 	    		    {% else %}
                        <li class="login"><a href="{% url 'accounts:login' %}">Login</a></li>

@@ -1,23 +1,50 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-<a href="{% url 'articles:list' %}"><h1 class="header">search results</h1></a>
-
-<ul>
-  {% if object_list %}
-    {% for article in object_list %}
-      <div class="article">
-          <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
-          <!-- <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2> -->
-          <p>{{ article.body|safe|truncatechars_html:50 }}</p>
-          {% comment %} <p>{{ article.snippet |safe}}</p> {% endcomment %}
-          <p> create : {{ article.date }}</p>
-          <p class="author">added by {{ article.author.username }}</p>
-      </div>
-      <br>
-    {% endfor %}
-    {% else %}
-      <h1 class="header"> not found </h1>
-  {% endif %}
-</ul>
+    
+    <a href="{% url 'articles:list' %}"><h1 class="pagination">search results</h1></a>
+    
+    <!-- Header -->
+    <header id="header" class="alt">
+    	<!-- <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt=""></a></div> -->
+    	<a href="#menu">Menu</a>
+    </header>
+    
+    <ul>
+      {% if object_list %}
+        {% for article in object_list %}
+          <!-- Main -->
+    		<div id="main">
+    			<!-- Section -->
+    				<section class="wrapper style1">
+    					<div class="inner">
+    						<!-- 2 Columns -->
+    							<div class="flex flex-2">
+    								<div class="col col1 first">
+    									<div class="image round fit">
+    										<br>
+    										<img src="{{ article.thumb.url }}" alt="not found">
+    									</div>
+    								</div>
+    								<div class="col col2">
+    									<br>
+    									<h3><a href="{% url 'articles:detail' slug=article.slug %}"></a>{{ article.title }}</h3>
+    									<p>{{ article.body|safe|truncatechars_html:50 }}</p>
+    									<!-- <p>{{ article.snippet |safe}}</p> -->
+    									<p>create : {{ article.date }}</p>
+    									<p class="author">added by {{ article.author.username }}</p>
+    									<a href="{% url 'articles:detail' slug=article.slug %}" class="button">Learn More</a>
+    								</div>
+    							</div>
+    					</div>
+    				</section>
+          <br>
+        {% endfor %}
+        {% else %}
+          <h1 class="header"> not found </h1>
+      {% endif %}
+    </ul>
 {% endblock  %}
+
+{% block section %}
+{% endblock section %}
