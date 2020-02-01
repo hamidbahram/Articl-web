@@ -1,19 +1,21 @@
 {% extends 'base_layout.html' %}
+{% load i18n %}
 
 {% block content %}
 
     <style>
         body{
-            background-color:rgb(4, 18, 63);
+            background-color: hsl(229, 35%, 9%);
         }
     </style>
 
     <!-- Header -->
     	<header id="header" class="alt">
+            <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt="Logo"></a></div>
     		<a href="#menu">Menu</a>
 		</header>
 
-    <h1 class="color">Log in</h1>
+    <h1 class="labll">Log in</h1>
     <br>
     <form class="site-form" action="{% url 'accounts:login' %}" method="post">
         {% csrf_token %}
@@ -21,7 +23,8 @@
         {% if request.GET.next %}
             <input type="hidden" name="next" value="{{ request.GET.next }}">
         {% endif %}
-        <input type="submit" value="Login">
+        <br>
+        <button type="submit">{% trans "Login"  %}</button>
     </form>
 {% endblock  %}
 

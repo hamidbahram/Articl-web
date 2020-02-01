@@ -1,25 +1,27 @@
 {% extends 'base_layout.html' %}
+{% load i18n %}
 
 {% block content %}
 
     <style>
         body{
-            background-color:rgb(11, 57, 206);
+            background-color: hsl(229, 35%, 9%);
         }
     </style>
 
     <!-- Header -->
 	<header id="header" class="alt">
+        <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt="Logo"></a></div>
 		<a href="#menu">Menu</a>
 	</header>
 
-    <h1 class='color'>sign up</h1>
+    <h1 class='labll'>sign up</h1>
     <br>
     <form class="site-form" action="{% url 'accounts:signup' %}" method="post">
         {% csrf_token %}
         {{form}}
         <div class="g-recaptcha" data-sitekey="6LfF7MUUAAAAAHgAx5Vdiy61ybZM-_TkX-57ECIH"></div>
-        <input type="submit" value="Signup">
+        <button type="submit">{% trans "Signup"  %}</button>
     </form>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}

@@ -2,11 +2,25 @@
 {% load i18n %}
 
 {% block content %}
+
+    <style>
+        body{
+            background-color: #0f121f;
+        }
+    </style>
+
+    <header id="header" class="alt">
+        <div class="logo"><a href="{% url 'articles:list' %}"><img src="/static/css/logo.png" alt="Logo"></a></div>
+    	<a href="#menu">Menu</a>
+    </header>
+
+    <h2 class="labll">Create An Awesome New Article</h2>
+    
     <div class="create-article">
-        <h2 class="color"><a href="{% url 'articles:list' %}">Create an Awesome New Article</a></h2>
         <form class="site-form" action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{form}}
+            <br>
             <button type="submit">{% trans "Create" %}</button>
         </form>
     </div>

@@ -3919,7 +3919,7 @@
 
 	/* author */
 	.author{
-		color: rgba(252, 0, 105, 0.904);
+		color: #fc0069e7;
 	}
 
 	/* pagination */
@@ -3948,66 +3948,59 @@
 		padding: 10px;
 	}
 
-	/* bannerr */
-	#bannerr {
-		display: -ms-flexbox;
-		-ms-flex-pack: center;
-		-ms-flex-align: center;
-		padding: 8em 0 6em 0;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
-		align-items: center;
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-justify-content: center;
-		-webkit-justify-content: center;
-		-ms-justify-content: center;
-		justify-content: center;
-		/* background-image: url("../../media/the-last-of-us-state-of-play-screen-06-ps4-us-24sep19_yT5u1me.png"); */
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		border-top: 0;
-		min-height: 100vh;
-		height: 100vh !important;
-		position: relative;
-		text-align: center;
-		overflow: hidden;
+	/* headers on form */
+	.labll{
+		text-align:center;
+		margin: 20px 0 0 0;
+		color: #ffffff;
+	}	
+	
+	/* captcha */
+	.g-recaptcha{
+		margin: 0 auto;
+		margin-top:10px;
+		margin-bottom:10px;
+		width: 304px;
+		
 	}
 
-	#bannerr .inner {
-		-moz-transform: scale(1.0);
-		-webkit-transform: scale(1.0);
-		-ms-transform: scale(1.0);
-		transform: scale(1.0);
-		-moz-transition: opacity 1s ease, -moz-transform 1s ease;
-		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
-		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
-		transition: opacity 1s ease, transform 1s ease;
-		opacity: 1;
-		position: relative;
-		z-index: 2;
-	}
-	#bannerr h1 {
-		font-size: 4em;
-		margin-bottom: .25em;
-		color: #FFF;
-	}
-	#bannerr p {
-		color: rgba(255, 255, 255, 0.85);
-		font-size: 1.75em;
-	}
-
-	.edit-form{
+	/* form: login & signup & edit & create */
+	.site-form{
 		margin-top: 60px;
 		padding: 20px;
 	}
-
-	.edit-form input, .edit-form textarea{
+	
+	.site-form{
+		margin-top: 60px;
+		border: 2px solid  #00dba0;
+		padding: 20px;
+		text-align: center;
+	}
+	 
+	.site-form input, .site-form textarea{
 		display: block;
-		margin: 20px 0 0 0;
+		/* margin: 20px 0 0 0; */
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
 		padding: 10px;
+		background-color: #ffffff;	
+	}
+
+	.site-form input, .site-form textarea[title]{
+		width: 500px;
+	}
+
+	.site-form input, .site-form input.label[title]{
+		color: #000000;
+	}
+
+	.site-form label{
+		color: #ffffff;
+	}
+
+	.helptext ul{
+		text-align:center;
+		display:block;
+		display:inline-table;
 	}
