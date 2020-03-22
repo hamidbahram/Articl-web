@@ -20,6 +20,9 @@ from django.conf.urls.static import static
 from django.urls import path, include
 from django.contrib import admin
 from django.conf import settings
+# social
+from django.conf.urls import url
+from django.contrib.auth import views
 
 urlpatterns = [
     path(r'admin/', admin.site.urls),
@@ -29,6 +32,10 @@ urlpatterns = [
     path(r'', article_views.article_list, name='home'),
     #ckeditor
     path(r'ckeditor/', include('ckeditor_uploader.urls')),
+    # social url
+    url(r'^login/$', views.LoginView.as_view(), name='login'),
+    url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
+    url(r'^auth/', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:

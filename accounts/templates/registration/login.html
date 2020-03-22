@@ -25,6 +25,8 @@
         {% endif %}
         <br>
         <button type="submit">{% trans "Login"  %}</button>
+        <a class="google" href="{% url 'social:begin' 'google-oauth2' %}">Login With Google</a>
+        <a class="git" href="{% url 'social:begin' 'github' %}">Login with GitHub</a>
     </form>
 {% endblock  %}
 

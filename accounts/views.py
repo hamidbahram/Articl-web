@@ -35,10 +35,10 @@ def signup_view(request):
                 return redirect('articles:list')
             else:
                 form = UserCreationForm
-            return render(request, 'accounts/signup.html', {'form':form})
+            return render(request, 'registration/signup.html', {'form':form})
     else:
         form = UserCreationForm()
-    return render(request, 'accounts/signup.html', {'form':form})
+    return render(request, 'registration/signup.html', {'form':form})
 
 def login_view(request):
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def login_view(request):
                 return redirect('articles:list')
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/login.html', {'form':form})
+    return render(request, 'registration/login.html', {'form':form})
     
 def logout_view(request):
     if request.method == 'POST':
