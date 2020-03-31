@@ -6,8 +6,7 @@
 installation
 --------------------
 - requirements:
- - python 3.7
-  install following packages via **pip** or **easy_install**
+- python 3.7 install following packages via **pip** or **easy_install**
 - `pip install Django==2.2.6`
 - `pip install djangorestframework==3.5.2`
 - `pip install django-filter==1.0.1`
@@ -56,6 +55,4 @@ Update url: open teminal and type this url.
 
 #### Follow me
 - [Email](https://hamidbahram2@gmail.com)
-- [Github](https://github.com/hamidbahram)
-- [Telegram](https://telegram.me/hamiid_bh)
 - [Instagram](https://www.instagram.com/_hamiid_bh/)
